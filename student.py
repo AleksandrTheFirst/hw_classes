@@ -1,5 +1,4 @@
-from pythonProject.lecturer import Lecturer
-
+from hw_classes.lecturer import Lecturer
 
 
 class Student:

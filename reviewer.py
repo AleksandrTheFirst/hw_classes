@@ -1,5 +1,5 @@
-from pythonProject.mentor import Mentor
-from pythonProject.student import Student
+from hw_classes.mentor import Mentor
+from hw_classes.student import Student
 
 
 class Reviewer(Mentor):
