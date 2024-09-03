@@ -9,14 +9,15 @@ class Lecturer(Mentor):
         self.courses_in_progress = []
 
     def __str__(self):
-        return (f'Имя: {self.name}\n'
+        return ('===LECTURER===\n'
+                f'Имя: {self.name}\n'
                 f'Фамилия: {self.surname}\n'
-                f'Средняя оценка за лекции: {self.avarage_grade(self.grades)}')
+                f'Средняя оценка за лекции: {self._avarage_grade(self.grades)}\n')
 
     def __eq__(self, other):
         if isinstance(other, Lecturer) and self.grades and other.grades:
-            self_avg = self.avarage_grade(self.grades)
-            other_avg = other.avarage_grade(other.grades)
+            self_avg = self._avarage_grade(self.grades)
+            other_avg = other._avarage_grade(other.grades)
             if self_avg == other_avg:
                 return True
             else:

@@ -16,6 +16,7 @@ class Reviewer(Mentor):
             return 'Ошибка'
 
     def __str__(self):
-        return f'Имя: {self.name}''\n' f'Фамилия: {self.surname}'
+        return f'Имя: {self.name}\n' \
+               f'Фамилия: {self.surname}\n'
 
 
