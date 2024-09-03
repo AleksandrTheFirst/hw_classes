@@ -23,5 +23,20 @@ class Student:
     def __str__(self):
         return (f'Имя: {self.name}\n'
                 f'Фамилия: {self.surname}\n'
-                f'Средняя оценка за домашние задания: \n'
-                f'Завершенные курсы: {self.finished_courses}\n')
+                f'Средняя оценка за домашние задания: {self.avarage_grade(self.grades)}\n'
+                f'Завершенные курсы: {', '.join(self.finished_courses)}\n')
+
+    def __eq__(self, other):
+        if isinstance(other, Student) and self.grades is not None and other.grades is not None:
+            self_avg = self.avarage_grade(self.grades)
+            other_avg = other.avarage_grade(other.grades)
+            if self_avg == other_avg:
+                return True
+            else:
+                return False
+
+    def avarage_grade(self, grades):
+        for grade in grades.values():
+            summary = sum(grade)
+            avg = summary/len(grade)
+        return avg
