@@ -5,8 +5,9 @@ class Mentor:
         self.courses_attached = []
 
 
-    def _avarage_grade(self, grades):
+    def avarage_grade(self, grades):
         avg_all = []
+        avg = 0
         if len(grades) > 0:
             for grade in grades.values():
                 avg = sum(grade)/len(grade)
