@@ -14,7 +14,7 @@ class Lecturer(Mentor):
                 f'Средняя оценка за лекции: {self.avarage_grade(self.grades)}')
 
     def __eq__(self, other):
-        if isinstance(other, Lecturer) and self.grades is not None and other.grades is not None:
+        if isinstance(other, Lecturer) and self.grades and other.grades:
             self_avg = self.avarage_grade(self.grades)
             other_avg = other.avarage_grade(other.grades)
             if self_avg == other_avg:
@@ -22,8 +22,3 @@ class Lecturer(Mentor):
             else:
                 return False
 
-    def avarage_grade(self, grades):
-        for grade in grades.values():
-            summary = sum(grade)
-            avg = summary/len(grade)
-        return avg

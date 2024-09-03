@@ -1,8 +1,10 @@
 from hw_classes.lecturer import Lecturer
+from hw_classes.mentor import Mentor
 
 
-class Student:
+class Student(Mentor):
     def __init__(self, name, surname, gender):
+        super().__init__(name, surname)
         self.name = name
         self.surname = surname
         self.gender = gender
@@ -13,7 +15,7 @@ class Student:
     def rate_lecturer(self, lecturer, course, grade):
         if (isinstance(lecturer, Lecturer) and course in lecturer.courses_attached and course in self.courses_in_progress)\
                 or (course in self.finished_courses and course in lecturer.courses_attached):
-            if course in lecturer.grades:
+            if course in lecturer.grades.keys():
                 lecturer.grades[course] += [grade]
             else:
                 lecturer.grades[course] = [grade]
@@ -35,8 +37,3 @@ class Student:
             else:
                 return False
 
-    def avarage_grade(self, grades):
-        for grade in grades.values():
-            summary = sum(grade)
-            avg = summary/len(grade)
-        return avg
