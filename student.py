@@ -19,3 +19,9 @@ class Student:
                 lecturer.grades[course] = [grade]
         else:
             return 'Ошибка'
+
+    def __str__(self):
+        return (f'Имя: {self.name}\n'
+                f'Фамилия: {self.surname}\n'
+                f'Средняя оценка за домашние задания: \n'
+                f'Завершенные курсы: {self.finished_courses}\n')
