@@ -13,15 +13,14 @@ class Student(Mentor):
         self.grades = {}
 
     def rate_lecturer(self, lecturer, course, grade):
-        if (isinstance(lecturer,
-                       Lecturer) and course in lecturer.courses_attached and course in self.courses_attached) \
-                or (course in self.finished_courses and course in lecturer.courses_attached):
-            if course in lecturer.grades.keys():
-                lecturer.grades[course] += [grade]
-            else:
-                lecturer.grades[course] = [grade]
+        if not isinstance(lecturer, Lecturer):
+            raise ValueError('Некорректный объект лектора')
+        if course not in self.courses_attached:
+            raise ValueError('Курс не прикреплен к проверяющему')
+        if course in lecturer.grades:
+            lecturer.grades[course] += [grade]
         else:
-            return 'Ошибка'
+            lecturer.grades[course] = [grade]
 
     def __str__(self):
         return (f'===STUDENT===\n'

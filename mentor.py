@@ -17,7 +17,7 @@ class Mentor:
                 avg = sum(grade)/len(grade)
                 avg_all.append(avg)
             avg = sum(avg_all) / len(avg_all)
-        return avg
+        return avg if avg else 0
 
     def average_for_group(self, objects, course):
         avg_list = [obj.average_grade(obj.grades) for obj in objects if course in obj.courses_attached]
