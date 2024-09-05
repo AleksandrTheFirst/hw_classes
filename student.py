@@ -27,13 +27,13 @@ class Student(Mentor):
         return (f'===STUDENT===\n'
                 f'Имя: {self.name}\n'
                 f'Фамилия: {self.surname}\n'
-                f'Средняя оценка за домашние задания: {self.avarage_grade(self.grades)}\n'
+                f'Средняя оценка за домашние задания: {self.average_grade(self.grades)}\n'
                 f'Завершенные курсы: {', '.join(self.finished_courses)}\n')
 
     def __eq__(self, other):
         if isinstance(other, Student) and self.grades is not None and other.grades is not None:
-            self_avg = self.avarage_grade(self.grades)
-            other_avg = other.avarage_grade(other.grades)
+            self_avg = self.average_grade(self.grades)
+            other_avg = other.average_grade(other.grades)
             if self_avg == other_avg:
                 return True
             else:
@@ -44,6 +44,6 @@ class Student(Mentor):
         avg_all = 0
         if course in self.courses_in_progress and course in self.grades and students is not None:
             for student in students:
-                avg.append(student.avarage_grade(student.grades))
+                avg.append(student.average_grade(student.grades))
             avg_all = sum(avg) / len(avg)
         return avg_all

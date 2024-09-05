@@ -5,7 +5,7 @@ class Mentor:
         self.courses_attached = []
 
 
-    def avarage_grade(self, grades):
+    def average_grade(self, grades):
         avg_all = []
         avg = 0
         if len(grades) > 0:
