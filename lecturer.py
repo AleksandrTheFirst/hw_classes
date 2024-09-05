@@ -21,13 +21,3 @@ class Lecturer(Mentor):
                 return True
             else:
                 return False
-
-
-    def avg_all_lecturers(self, lecturers, course):
-        avg = []
-        avg_all = 0
-        if course in self.courses_attached and course in self.grades and lecturers is not None:
-            for lecturer in lecturers:
-                avg.append(lecturer.average_grade(lecturer.grades))
-            avg_all = sum(avg) / len(avg)
-        return avg_all
